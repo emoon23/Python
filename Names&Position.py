@@ -31,7 +31,7 @@ elif choice == 'n':
 #Here is where the name and roles will be printed
 print("----------NAMES & POSITIONS------------")
 
-em1 = E3("Edward", "Tech Guy")
+em1 = E3("Edward", "Software Developer")
 em2 = E3("Jonathan", "Administrator at Data Center")
 em3 = E3("Andrew", "Human Resources")
 em4 = E3("Nicole", "Nurse")
