@@ -21,27 +21,62 @@ Discord Commands
 #Open Weather Map API
 api_key = 'da86b8b590aa4e97abe168bac1d99a29'
 
-bot = commands.Bot(command_prefix="!")
+#bot = commands.Bot(command_prefix="!")
 
 #base_url variable to store url
-base_url = "http://maps.openweathermap.org/maps/2.0/weather.TA2/{z}/{x}/{y}?date=1527811200&opacity=0.9&fill_bound=true&appid={api_key}"
+base_url = "http://api.openweathermap.org/data/2.5/weather?"
 
 #Request user input first
-user = input('Would like to know what the weather is today? ')
+#user = input('Would like to know what the weather is today? ')
 
 #Conditional Statement
-if user == 'Yes' or user == 'yes':
+#if user == 'Yes' or user == 'yes':
 
-    city_Name = input('Please enter the name of a city in the US: ')
+city_Name = input('Please enter the name of a city in the US: ')
 
-    complete_url = base_url + "appid=" + api_key + "&q=" + city_Name
+complete_url = base_url + "appid=" + api_key + "&q=" + city_Name
 
-    responses = requests.get(complete_url)
+responses = requests.get(complete_url)
 
-    x = responses.json()
+x = responses.json()
 
-    #x contains a list of nested disctionaries
+#x contains a list of nested disctionaries
 
     #Check if api key is equal to "404", means city is found otherwise,
     #City is not found
-    if x['cod'] != "404":
+if x['cod'] != "404":
+
+        #Store the value of "main"
+        #key in the variable y
+        y = x["main"]
+
+        #store the value corresponding
+        #to the "temp" key of y
+        current_temp = y["temp"]
+
+        #store the value corresponding
+        #to the "pressure" key of y
+        current_press = y["pressure"]
+
+        #store the value humidity key in y
+        current_humid = y["humidity"]
+
+        #store the value of weather
+        #key in variable z
+        z = x["weather"]
+
+        #Store the value corresponding
+        #To the weather description key at
+        #the 0th index of z
+        weather_descript = z[0]["description"]
+
+        print(" Temperature (in kelvin unit) = " +
+                    str(current_temp) +
+                "\n atmospheric pressure (in hPa unit) = " +
+                    str(current_press) +
+                "\n humidity (in precentage) = " +
+                    str(current_humid) +
+                "\n description = " +
+                    str(weather_descript))
+else:
+        print(" City not found ")
