@@ -22,6 +22,7 @@ client = discord.Client()
 
 #client = Bot(command_prefix=BOT_PREFIX)
 
+#Command must have ! in front
 bot = commands.Bot(command_prefix="!")
 
 
@@ -51,7 +52,7 @@ async def on_message(message):
         await message.channel.send("That's me")
     elif message.content.startswith('bitch'):
         await message.channel.send('You dare speak to me like that?')
-    elif message.content.startswith('fuck you'):
+    elif message.content.startswith('******'): #vulgar statement
         await message.channel.send('You are lucky I am only a bot that has limited responses..')
     elif message.content.startswith('hi'):
         await message.channel.send('Hello, Human...')
