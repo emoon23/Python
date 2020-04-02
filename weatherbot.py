@@ -44,4 +44,4 @@ if user == 'Yes' or user == 'yes':
 
     #Check if api key is equal to "404", means city is found otherwise,
     #City is not found
-    if x['cod'] != "404":
+    #if x['cod'] != "404":
