@@ -1,0 +1,6 @@
+import random
+
+# Poison
+shot = ['Vodka', 'Tequila', 'Bourbon', 'Scotch', 'Whiskey', 'Gin', 'Rum']
+
+#print('Take a shot of ' + shots[random.randint(0,6)])
